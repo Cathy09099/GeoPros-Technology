@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uranium Extraction - Task</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+    header {
+      background: #003366;
+      color: white;
+      padding: 1.5em;
+      text-align: center;
+    }
+    nav {
+      background: #0055a5;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 1em;
+      position: sticky;
+      top: 0;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2em;
+    }
+    section {
+      margin-bottom: 3em;
+    }
+    h2 {
+      color: #003366;
+    }
+    .comparison-buttons {
+      display: flex;
+      gap: 1em;
+      margin-bottom: 1em;
+      flex-wrap: wrap;
+    }
+    .comparison-buttons button {
+      padding: 0.6em 1.2em;
+      border: none;
+      background-color: #007acc;
+      color: white;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .comparison-buttons button:hover {
+      background-color: #005a99;
+    }
+    .comparison-content {
+      display: none;
+      background: #fff;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .active {
+      display: block;
+    }
+    .accordion {
+      background-color: #e0f7fa;
+      cursor: pointer;
+      padding: 1em;
+      margin: 0.5em 0;
+      border: none;
+      outline: none;
+      font-weight: bold;
+      text-align: left;
+      width: 100%;
+    }
+    .accordion:hover {
+      background-color: #b2ebf2;
+    }
+    .panel {
+      padding: 1em;
+      background-color: #fff;
+      display: none;
+      overflow: hidden;
+      border-left: 5px solid #00796b;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      margin-top: 1em;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.75em;
+      text-align: left;
+    }
+    th {
+      background-color: #007acc;
+      color: white;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    footer {
+      background: #003366;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Task Page</h1>
+    <p>Uranium Extraction Methods: An Interactive and Sustainable Comparison</p>
+  </header>
+
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#comparison">Comparison</a>
+    <a href="#case">Case Study</a>
+    <a href="#sustainability">Sustainability</a>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <h2>1. Project Overview</h2>
+      <p>This page explores uranium extraction methods used in Namibia and globally, especially focusing on how new biotechnological innovations like bacterial leaching can improve In-Situ Recovery (ISR). The goal is to assess geological compatibility, technical feasibility, and sustainable development impacts.</p>
+    </section>
+
+    <section id="comparison">
+      <h2>2. Interactive Comparison of Uranium Extraction Methods</h2>
+      <div class="comparison-buttons">
+        <button onclick="showComparison('geo')">Geological Types</button>
+        <button onclick="showComparison('tech')">Technical Features</button>
+        <button onclick="showComparison('infra')">Infrastructure</button>
+        <button onclick="showComparison('cost')">Cost Efficiency</button>
+      </div>
+
+      <div id="geo" class="comparison-content active">
+        <h3>Main Geological Application</h3>
+        <p><strong>ISR:</strong> Sandstone-hosted deposits, permeable formations suitable for fluid circulation.</p>
+        <p><strong>Conventional Mining:</strong> Hard rock and deep deposits requiring physical excavation.</p>
+      </div>
+      <div id="tech" class="comparison-content">
+        <h3>Technical Features</h3>
+        <p><strong>ISR:</strong> Involves injecting leaching fluids into ore bodies and pumping uranium-laden fluid to the surface.</p>
+        <p><strong>Conventional Mining:</strong> Requires blasting, crushing, grinding, and chemical leaching of ores.</p>
+      </div>
+      <div id="infra" class="comparison-content">
+        <h3>Infrastructure Requirements</h3>
+        <p><strong>ISR:</strong> Wells, pipelines, and monitoring systems.</p>
+        <p><strong>Conventional Mining:</strong> Roads, machinery, tailings storage, processing plants.</p>
+      </div>
+      <div id="cost" class="comparison-content">
+        <h3>Cost Efficiency</h3>
+        <p><strong>ISR:</strong> Cheaper to establish and operate, especially in low-grade ores.</p>
+        <p><strong>Conventional Mining:</strong> Expensive due to heavy machinery and labor requirements.</p>
+      </div>
+    </section>
+
+    <section id="case">
+      <h2>3. Case Study: Biotechnological Improvements in ISR</h2>
+
+      <button class="accordion">What is Biotechnological ISR?</button>
+      <div class="panel">
+        <p>Biotechnological ISR involves using bacteria such as <em>Acidithiobacillus ferrooxidans</em> to break down uranium-bearing minerals and enhance leaching in ore bodies, especially where conventional ISR is less effective.</p>
+      </div>
+
+      <button class="accordion">Environmental Benefits</button>
+      <div class="panel">
+        <p>Reduces chemical use, land disturbance, and greenhouse gas emissions. Safer for nearby communities and ecosystems.</p>
+      </div>
+
+      <button class="accordion">Economic Advantages</button>
+      <div class="panel">
+        <p>Allows profitable extraction from previously uneconomical low-grade ores and tailings. Lower setup and energy costs.</p>
+      </div>
+
+      <button class="accordion">Comparison with Conventional Mining</button>
+      <div class="panel">
+        <p>Traditional mining is energy-intensive, water-heavy, and environmentally degrading. Biotech-enhanced ISR is more targeted, reduces surface disruption, and has lower long-term costs.</p>
+      </div>
+    </section>
+
+    <section id="sustainability">
+      <h2>4. Environmental, Social, and Economic Sustainability</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Biotech ISR</th>
+            <th>Conventional Mining</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Environmental</td>
+            <td>Low land impact, low emissions, safer groundwater management</td>
+            <td>Deforestation, tailings risk, high emissions</td>
+          </tr>
+          <tr>
+            <td>Social</td>
+            <td>Minimal displacement, fewer health risks</td>
+            <td>Higher community impact, noise, dust, and health issues</td>
+          </tr>
+          <tr>
+            <td>Economic</td>
+            <td>Cost-effective in low-grade zones, scalable</td>
+            <td>High upfront capital, costly remediation</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 HackAtom | Catherine Team | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Show correct tab
+    function showComparison(id) {
+      document.querySelectorAll(".comparison-content").forEach(c => c.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    // Accordion logic
+    document.querySelectorAll(".accordion").forEach(acc => {
+      acc.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const panel = this.nextElementSibling;
+        panel.style.display = (panel.style.display === "block") ? "none" : "block";
+      });
+    });
+  </script>
+</body>
+</html>

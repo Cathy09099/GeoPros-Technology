@@ -1,0 +1,159 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uranium Mining in Namibia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="nav-logo">Uranium Mining Namibia</h1>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="geology.html">Geology</a></li>
+                    <li><a href="mining.html">Mining</a></li>
+                    <li><a href="environment.html">Environment</a></li>
+                    <li><a href="task.html">Task</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Namibia: A Global Leader in Uranium Production</h1>
+            <p>Explore the geology, mining methods, and environmental considerations of uranium extraction in one of Africa's most important mining nations.</p>
+            <a href="about.html" class="cta-button">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Navigation Cards -->
+            <section class="cards-section">
+                <h2>Explore Our Content</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Geological Foundations</h3>
+                        <p>Discover the geological formations that make Namibia rich in uranium deposits</p>
+                        <a href="geology.html" class="card-link">Learn More</a>
+                    </div>
+                    <div class="card">
+                        <h3>Mining Techniques</h3>
+                        <p>Learn about open-pit and underground mining methods used in Namibia</p>
+                        <a href="mining.html" class="card-link">Learn More</a>
+                    </div>
+                    <div class="card">
+                        <h3>Environmental Impact</h3>
+                        <p>Understand the environmental impact and mitigation strategies</p>
+                        <a href="environmental.html" class="card-link">Learn More</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Facts Section -->
+            <section class="quick-facts">
+                <h2>Quick Facts</h2>
+                <div class="facts-grid">
+                    <div class="fact">
+                        <h3>World Ranking</h3>
+                        <p>3rd largest uranium producer globally</p>
+                    </div>
+                    <div class="fact">
+                        <h3>Annual Production</h3>
+                        <p>~5,000 tonnes U3O8</p>
+                    </div>
+                    <div class="fact">
+                        <h3>Major Mines</h3>
+                        <p>Rössing, Husab, Langer Heinrich</p>
+                    </div>
+                    <div class="fact">
+                        <h3>Main Companies</h3>
+                        <p>Rio Tinto, Swakop Uranium, Paladin</p>
+                    </div>
+                </div>
+            </section>
+
+    <section>
+
+        <h2>Informative Videos</h2>
+        <div>
+            <article>
+                <h3>Rössing Uranium - Our Operations</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/yiGspNCK2fs" title="Rössing Uranium - Our Operations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
+            <article>
+                <h3>A Visit to Husab</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/L1STOWFvi9E" title="A Visit to Husab" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
+            <article>
+                <h3>Rossing Uranium to Outsource Operations Due to Financial Constraints</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/g4W-wj3qU4Q" title="Rossing Uranium to Outsource Operations Due to Financial Constraints" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
+            <article>
+                <h3>Rossing Uranium Mines Plough Back - NBC</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/w7X-U6wubsQ" title="Rossing Uranium Mines Plough Back - NBC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
+        </div>
+    </section>
+
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Uranium Mining in Namibia - Educational Project</p>
+        </div>
+    </footer>
+</body>
+</html>
